@@ -52,11 +52,11 @@ void setColourRGB(int red, int green, int blue) {
   analogWrite(RGB_BLUE_PIN, blue);
 }
 
-void setMoistureColour(int percent) {
-  if (percent <= 33) {
+void setColourLED(int percent) {
+  if (percent <= 25) {
     setColourRGB(128, 0, 0);  // Red
   }
-  else if (percent <= 66) {
+  else if (percent <= 50) {
     setColourRGB(128, 50, 0); // Yellow
   }
   else {
@@ -81,28 +81,20 @@ void setup() {
     Serial.println(">> !!! OLED Not Found !!!");
   }
 
-  // display.setCursor(0, 0);
+  // DISPLAY TEST
   display.clearDisplay();
+
+  display.setCursor(0, 0);
   display.setTextSize(2);
   display.setTextColor(WHITE);
+  display.println("Hello");
+
+  display.display();
 
   delay(1000);
 } // setup()
 
 void loop() {
-  // setColourRGB(0, 50, 0);  // R_MIN = 128 | G_MIN = 50 | B_MIN = 128
-  // displayMC("100");
-
-  // delay(5000);
-
-  // setColourRGB(128, 50, 0);  // R_MIN = 128 | G_MIN = 50 | B_MIN = 128
-  // displayMC("50");
-
-  // delay(5000);
-
-  // setColourRGB(128, 0, 0);  // R_MIN = 128 | G_MIN = 50 | B_MIN = 128
-  // displayMC("0");
-
   // delay(5000);
   int sensorValue = analogRead(MOISTURE_SENSOR);
 
@@ -117,8 +109,7 @@ void loop() {
   Serial.println("%");
 
   displayMC(String(moisturePercentage));
-  setMoistureColour(moisturePercentage);
+  setColourLED(moisturePercentage);
 
   delay(500);
-
 } // loop()
