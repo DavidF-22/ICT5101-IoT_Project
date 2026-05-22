@@ -95,21 +95,26 @@ void setup() {
 } // setup()
 
 void loop() {
-  // delay(5000);
+  // Read sensor data
   int sensorValue = analogRead(MOISTURE_SENSOR);
 
-  // convert raw sensor value to percentage & keep between 0 to 100
+  // Convert raw sensor value to percentage & keep between 0 to 100
   int percent  = map(sensorValue, dryValue, wetValue, 0, 100);
   int moisturePercentage = constrain(percent, 0, 100);
 
-  Serial.print("Raw sensor value: ");
-  Serial.print(sensorValue);
-  Serial.print(" | Moisture: ");
-  Serial.print(percent);
-  Serial.println("%");
+  // // Test display - use only in the arudino IDE serial monitor
+  // Serial.print("Raw sensor value: ");
+  // Serial.print(sensorValue);
+  // Serial.print(" | Moisture: ");
+  // Serial.print(percent);
+  // Serial.println("%");
 
+  // Send only the number to the Python dashboard
+  Serial.println(moisturePercentage);
+
+  // Populate OLED Screen and LED
   displayMC(String(moisturePercentage));
   setColourLED(moisturePercentage);
 
-  delay(500);
+  delay(2000);
 } // loop()
