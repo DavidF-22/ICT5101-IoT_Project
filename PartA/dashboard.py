@@ -9,6 +9,9 @@ import serial.tools.list_ports
 from dash import Dash, dcc, html, dash_table, Input, Output, State, ctx
 import plotly.express as px
 
+import webbrowser
+import threading
+
 # The CSV file where readings are saved or appended.
 DATA_FILE = "moisture_history.csv"
 # Arduino default baud rate must math baud rate in arduino code
@@ -86,7 +89,7 @@ def read_from_arduino():
 
     except Exception:
         return None
-
+    
     return None
 
 def calculate_status(moisture):
@@ -392,6 +395,11 @@ def update_dashboard(n_intervals, stored_data):
 # RUN APP ---------------------------------------------------------------------
 
 if __name__ == "__main__":
+    url = "http://127.0.0.1:8050"
+    
     print(">> Starting Plant Monitor Dashboard...")
     print(">> Open this link in your browser: http://127.0.0.1:8050")
-    app.run(debug=False)
+    
+    threading.Timer(1, lambda: webbrowser.open(url)).start()
+    
+    app.run(debug=False, use_reloader=False, threaded=False)
