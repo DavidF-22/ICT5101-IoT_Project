@@ -185,8 +185,8 @@ app.layout = html.Div(
         # This hidden storage keeps the readings inside the browser.
         dcc.Store(id="data-store", data=starting_df.to_dict("records")),
 
-        # This timer updates the dashboard every 2 seconds.
-        dcc.Interval(id="update-timer", interval=2000, n_intervals=0),
+        # This timer updates the dashboard every 5 seconds.
+        dcc.Interval(id="update-timer", interval=5000, n_intervals=0),
 
         # Connection controls
         html.Div(
@@ -315,7 +315,7 @@ def handle_buttons(connect_clicks, save_disconnect_clicks, port, baud_rate, stor
 )
 def update_dashboard(n_intervals, stored_data):
     """
-    This function runs automatically every 2 seconds.
+    This function runs automatically every 5 seconds.
 
     It:
     1. Reads a new Arduino value, if available.

@@ -14,13 +14,8 @@
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
 
-// Calibration values ---
-int dryValue = 0;   // sensor threshold in dry air/soil
-int wetValue = 600;   // sensor threshold in water/wet soil
-
 // Helper Functions ---
 void drawCenteredText(String text, int y, int size) {
-
   int16_t x1, y1;
   uint16_t w, h;
 
@@ -98,9 +93,9 @@ void loop() {
   // Read sensor data
   int sensorValue = analogRead(MOISTURE_SENSOR);
 
-  // Convert raw sensor value to percentage & keep between 0 to 100
-  int percent  = map(sensorValue, dryValue, wetValue, 0, 100);
-  int moisturePercentage = constrain(percent, 0, 100);
+  // // Convert analogRead range 0–1023 to 0–100% - 1023.0 is the maximum analogRead() value on Arduino boards 
+  int moisturePercentage = (sensorValue / 1023.0) * 100;
+  moisturePercentage = constrain(moisturePercentage, 0, 100);
 
   // // Test display - use only in the arudino IDE serial monitor
   // Serial.print("Raw sensor value: ");
@@ -116,5 +111,5 @@ void loop() {
   displayMC(String(moisturePercentage));
   setColourLED(moisturePercentage);
 
-  delay(2000);
+  delay(5000);
 } // loop()
