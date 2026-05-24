@@ -6,7 +6,7 @@ The project implements a simple **remote plant monitoring system** using an Ardu
 
 ## 📚 Table of Contents
 
-- [📌 Project Overview](#-project-overview)
+- [📋 Project Overview](#-project-overview)
 - [🧩 System Components](#-system-components)
 - [📁 Folder Structure](#-folder-structure)
 - [🔌 Arduino Scripts](#-arduino-scripts)
