@@ -58,6 +58,12 @@ PartA/
 │   │   ├── ICT5101_CiruitDiagram.fzz
 │   │   └── ICT5101_CiruitDiagram.png
 │   │
+│   ├── datasheets/
+│   │   ├── Arduino-Nano-datasheet.pdf
+│   │   ├── OLED-display-module.pdf
+│   │   ├── rgb-led.pdf
+│   │   └── soil-moisture-sensor-ME110.pdf
+│   │
 │   ├── imgs/
 │   │   └── dashboard.png
 │   │
