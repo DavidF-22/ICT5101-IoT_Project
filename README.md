@@ -14,7 +14,7 @@ Each component is organised independently and includes its own files, documentat
 
 **This repository contains the complete project work developed in fulfilment of the ICT5101 Internet of Things study unit.**
 
-## Acknowledgments
+## 👍 Acknowledgments
 
 This individual project was carried out as part of the partial fulfilment of the requirements for the **ICT5101 Internet of Things** course @ **[The University of Malta](https://www.um.edu.mt/)**.
 
