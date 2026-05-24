@@ -1,7 +1,7 @@
 ```bash
-# dashboard1
-pip install pyserial dash plotly pandas numpy
+pip install -r requirements.txt
 
-# dashboard2
-pip install pyserial dash plotly pandas numpy dash-bootstrap-components
+# OR
+
+pip install pyserial dash plotly pandas
 ```

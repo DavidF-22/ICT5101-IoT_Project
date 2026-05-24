@@ -93,7 +93,7 @@ void loop() {
   // Read sensor data
   int sensorValue = analogRead(MOISTURE_SENSOR);
 
-  // // Convert analogRead range 0–1023 to 0–100% - 1023.0 is the maximum analogRead() value on Arduino boards 
+  // Convert analogRead range 0–1023 to 0–100% - 1023.0 is the maximum analogRead() value on Arduino boards 
   int moisturePercentage = (sensorValue / 1023.0) * 100;
   moisturePercentage = constrain(moisturePercentage, 0, 100);
 
